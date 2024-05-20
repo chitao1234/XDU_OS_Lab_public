@@ -1,10 +1,14 @@
 # Operating System Lab for Software Engineering Major of Xidian University, 2024
 
+The Linux distro used is OpenEuler 23.09.
+
 Contains the original lab files, a version of linux kernel used for the lab, and my solution.
 
 May contain imperfections, use at your own risk.
 
 # 西安电子科技大学 软件工程专业 2024 操作系统课程设计
+
+使用系统 OpenEular 23.09
 
 包含实验题目文件，原内核打包与我的解答
 
