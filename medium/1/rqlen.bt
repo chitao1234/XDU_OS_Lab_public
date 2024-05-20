@@ -1,0 +1,28 @@
+/* --------------------------------------------------------------
+ * File          : rqlen.bt
+ * Authors       : 西安电子科技大学:网络与信息安全国家级实验教学中心
+ * Created on    : <2024-02-01>
+ * Last modified : <2024-03-01>
+ * LICENSE       : 由实验教学中心拥有，分发需申请并征得同意
+ * -------------------------------------------------------------*/
+
+#include <linux/sched.h>
+
+struct cfs_rq {
+	struct load_weight load;
+	unsigned int nr_running;
+	unsigned int h_nr_running;
+};
+
+BEGIN
+{
+	printf("获取运行队列长度，按 Ctrl-C 结束 \n");
+}
+
+profile:hz:99
+{
+  $rq = curtask->se.cfs_rq;
+
+  printf("CPU %d has %ld runnable tasks\n", cpu, $rq->nr_running);
+  @rqlen = hist($rq->nr_running);
+}
