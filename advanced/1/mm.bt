@@ -1,0 +1,21 @@
+/* --------------------------------------------------------------
+ * File          : mm.bt
+ * Authors       : 西安电子科技大学:网络与信息安全国家级实验教学中心
+ * Created on    : <2024-02-01>
+ * Last modified : <2024-03-01>
+ * LICENSE       : 由实验教学中心拥有，分发需申请并征得同意
+ * -------------------------------------------------------------*/
+
+#include <linux/sched.h>
+#include <linux/mm_types.h>
+
+interval:hz:10
+/ pid != 0 /
+{
+	// 学生TODO: 请添加代码
+	printf("Tracing mmap for process %s, pid: %d\n", comm, pid);
+	$map = curtask->mm;
+	printf("Code section: %p-%p\n", $map->start_code, $map->end_code);
+	printf("Data section: %p-%p\n", $map->start_data, $map->end_data);
+	printf("Stack start: %p\n", $map->start_stack);
+}
